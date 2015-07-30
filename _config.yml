@@ -1,0 +1,28 @@
+name: Tokinonagare
+url:  http://tokinonagare.com
+
+permalink: /:year/:month/:day/:title
+
+paginate: 4
+paginate_path: "page:num"
+
+highlighter: pygments
+
+markdown: redcarpet
+markdown_ext:  md
+redcarpet:
+    extensions: [no_intra_emphasis,tables,autolink,disable_indented_code_blocks,fenced_code_blocks]
+
+exclude: ['README.md', '*.sh', '.*']
+
+gems:
+  - jekyll-sitemap
+
+cate_icons:
+  reading: "fa-book"
+  linux: "fa-linux"
+  web: "fa-html5"
+  misc: "fa-file-text"
+
+# 以'post.excerpt'进行文章摘要
+# excerpt_separator: "<!-- more -->"

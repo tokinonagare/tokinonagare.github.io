@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Tokinonagare</title>
+		<description></description>
+		<link>http://tokinonagare.com</link>
+		<atom:link href="http://tokinonagare.com/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Blogの始まり</title>
+				<description>&lt;blockquote&gt;
+&lt;p&gt;首先感谢&lt;a href=&quot;http://harttle.github.io&quot;&gt;Harttle&lt;/a&gt;这套blog代码.
+如何使用Github和Jekyll搭建Blog的文章网上已经很多, 就不赘述了, 姑且记录一些自己遇到的问题.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1&gt;域名DNS问题&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;由于是第一次使用非ip解析域名, 当使用&lt;code&gt;CNAME&lt;/code&gt;记录将&lt;code&gt;tokinonagare.com&lt;/code&gt;解析到&lt;code&gt;tokinonagare.github.io&lt;/code&gt;时, &lt;a href=&quot;https://www.cloudflare.com&quot;&gt;Cloudflare&lt;/a&gt;上出现一个&amp;quot;!&amp;quot;的警告, 并且无法连接&lt;code&gt;tokinonagare.com.&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;需在项目文件夹中新建&lt;code&gt;CNAME&lt;/code&gt;文件, 写入&lt;code&gt;tokinonagare.com&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;因为是顶级域名, 需在DNS使用&lt;code&gt;ALIAS&lt;/code&gt;记录, 然而&lt;a href=&quot;https://www.cloudflare.com&quot;&gt;Cloudflare&lt;/a&gt;没有这个记录选项, 所以需直接用&lt;code&gt;A&lt;/code&gt;记录到两个ip:&lt;code&gt;192.30.252.153&lt;/code&gt;&amp;amp;&lt;code&gt;192.30.252.154&lt;/code&gt;&lt;strong&gt;注: ip会更改&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;如果不使用&lt;code&gt;A&lt;/code&gt;记录, 使用&lt;code&gt;CNAME&lt;/code&gt;记录到&lt;code&gt;tokinonagare.com&lt;/code&gt;访问正常, 按照Github的说法会出现邮件的解析问题(未验证);&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://help.github.com/articles/my-custom-domain-isn-t-working/&quot;&gt;https://help.github.com/articles/my-custom-domain-isn-t-working/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;http://justcoding.iteye.com/blog/1959737&quot;&gt;http://justcoding.iteye.com/blog/1959737&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1&gt;目录摘要显示&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;源代码中目录页面中的每篇Blog文章占据了太大的篇幅, 秉着使用尽量少的操作浏览尽量多的内容, 故进行修改.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;①首先尝试CSS, 添加行高限制, 隐藏溢出内容, 然而会出现部分最后一行行显示半截, 故舍弃;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#posts &amp;gt; div.post.paper{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;②考虑&lt;code&gt;jekyll&lt;/code&gt;对于这种问题应该会做处理, 于是去查看源码;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;lt;!-- more --&amp;gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;!-- more --&amp;gt;&lt;/code&gt;是一个分割标签, 该段代码含义: 显示从文章开始到该标签的内容;&lt;/p&gt;
+
+&lt;p&gt;③用字数进行限制, 然而这样会导致HTML的内容也会显示出来;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;truncatewords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;④使用摘要显示&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;excerpt&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;需在&lt;code&gt;_config.yml&lt;/code&gt;中添加: &lt;code&gt;excerpt_separator: &amp;quot;&amp;lt;!-- more --&amp;gt;&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;excerpt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;摘要内容&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;需要手动添加内容, 对于懒人来说太困难了&lt;em&gt;(:з」∠)&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&quot;http://mikeygee.com/blog/truncate.html&quot;&gt;http://mikeygee.com/blog/truncate.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://blog.omgmog.net/post/adding-support-for-more-tag-to-jekyll-without-plugins/&quot;&gt;https://blog.omgmog.net/post/adding-support-for-more-tag-to-jekyll-without-plugins/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;http://jekyllrb.com/docs/posts/#post-excerpts&quot;&gt;http://jekyllrb.com/docs/posts/#post-excerpts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://truongtx.me/2013/05/01/jekyll-read-more-feature-without-any-plugin/&quot;&gt;https://truongtx.me/2013/05/01/jekyll-read-more-feature-without-any-plugin/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;敏感词处理&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Liquid Exception: undefined method `split&amp;#39; for nil:NilClass&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;如果直接写入&lt;code&gt;{{ post.content | split:&amp;#39;&amp;lt;!-- more --&amp;gt;&amp;#39; | first }}&lt;/code&gt;会出现报错, 需要添加&lt;code&gt;{% raw %}&lt;/code&gt;和&lt;code&gt;{% endraw %}&lt;/code&gt;;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;lt;!-- more --&amp;gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endraw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然而我在写入&lt;code&gt;{% raw %}&lt;/code&gt;和&lt;code&gt;{% endraw %}&lt;/code&gt;自身时, 又遇到了问题, 方法是拆分掉&lt;code&gt;{%&lt;/code&gt;;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;{% raw %}&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endraw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;{% endraw %}&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endraw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endraw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://github.com/jekyll/jekyll/issues/3381&quot;&gt;https://github.com/jekyll/jekyll/issues/3381&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;http://blog.slaks.net/2013-06-10/jekyll-endraw-in-code/&quot;&gt;http://blog.slaks.net/2013-06-10/jekyll-endraw-in-code/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Tue, 21 Jul 2015 00:00:00 +0800</pubDate>
+				<link>http://tokinonagare.com/2015/07/21/Blog-no-hajimari</link>
+				<guid isPermaLink="true">http://tokinonagare.com/2015/07/21/Blog-no-hajimari</guid>
+			</item>
+		
+	</channel>
+</rss>

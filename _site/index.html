@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  
+  
+  <meta name="author" content="harttle">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="/assets/lib/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/lib/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/lib/buttons/css/buttons.css">
+  <link rel="stylesheet" href="/assets/css/sticky-footer-navbar.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!--reliance-->
+  <script src="/assets/lib/jquery/jquery-2.0.3.min.js"></script>
+</head>
+
+<body>
+<!-- Wrap all page content here -->
+<div id="wrap">
+  <!-- Navbar -->
+
+  <div class="navbar navbar-default navbar-inverse global-nav "> <!-- navbar-fixed-top 固定navbar在顶部-->
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Tokinonagare</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li id="archive"><a href="/date.html">Archive</a></li>
+          <li id="timeline"><a href="/timeline.html">Timeline</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li id="about"><a href="/about.html">About</a></li>
+             <!--  <li id="album"><a href="/album.html">Album</a></li> -->
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <form class="navbar-form navbar-right" role="search" action="http://google.com/search" method="get">
+            <input type="hidden" name="q" value="site:tokinonagare.github.io">
+
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for ..." name="q">
+              <span class="input-group-btn">
+                <button type="submit" class="button button-rounded button-flat-blue">Go</button>
+              </span>
+            </div>
+          </form>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+  <!-- Begin page content -->
+  <div id="main-content">
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+<link rel="stylesheet" href="/assets/css/monokai-syntax.css">
+<link rel="stylesheet" href="/assets/css/index.css">
+<style>
+    .item-list{
+        margin-bottom:50px;
+        padding: 15px 25px;
+        background-color: #FFFFCC;
+    }
+    .item-list li{ line-height:30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .item-list .page-header{ margin-bottom:10px; }
+    .item-list ol{ padding-left:5px; }
+    .pager{ margin-bottom: 0; }
+</style>
+<script src="/assets/lib/jquery/jquery-ias.min.js"></script>
+
+<div class="row">
+    <div class="col-md-9"> 
+        <img class="recent" src="/assets/img/recent.png"/>
+
+        <div id="posts">
+        
+            <div class="post paper">
+                <h2 class="header">
+                    <a class="feature-link" href="/2015/07/21/Blog-no-hajimari">Blogの始まり</a>
+                    <div class="pull-right text-muted">
+                        <span class="widget-date">
+
+  <a data-date=" 2015-07-21"
+     href="/date.html#date-2015-07" >
+    <i class="glyphicon glyphicon-time"></i>
+    21 Jul 2015
+  </a>
+</span>
+
+                    </div>
+                </h2>
+                <p class="meta">
+                    
+
+<span class="label label-blue" style="margin-right: 10px;">
+    <span class="glyphicon glyphicon-folder-open"></span>
+    <a href="/category.html#category-web"> Web</a>
+</span>
+
+
+                    
+
+<span class="label label-yellow" style="margin-right: 10px;">
+    <span class="glyphicon glyphicon-tag"></span>
+    <a href="/tag.html#tag-github">Github</a>
+</span>
+
+<span class="label label-yellow" style="margin-right: 10px;">
+    <span class="glyphicon glyphicon-tag"></span>
+    <a href="/tag.html#tag-markdown">Markdown</a>
+</span>
+
+<span class="label label-yellow" style="margin-right: 10px;">
+    <span class="glyphicon glyphicon-tag"></span>
+    <a href="/tag.html#tag-jekyll">Jekyll</a>
+</span>
+
+
+                </p>
+                <div class="md">
+                <!-- ①限制摘要文章字数;②以'split'标签文章摘要 -->
+                
+                    <blockquote>
+<p>首先感谢<a href="http://harttle.github.io">Harttle</a>这套blog代码.
+如何使用Github和Jekyll搭建Blog的文章网上已经很多, 就不赘述了, 姑且记录一些自己遇到的问题.</p>
+</blockquote>
+
+<h1>域名DNS问题</h1>
+
+<blockquote>
+<p>由于是第一次使用非ip解析域名, 当使用<code>CNAME</code>记录将<code>tokinonagare.com</code>解析到<code>tokinonagare.github.io</code>时, <a href="https://www.cloudflare.com">Cloudflare</a>上出现一个&quot;!&quot;的警告, 并且无法连接<code>tokinonagare.com.</code></p>
+</blockquote>
+
+<ol>
+<li>需在项目文件夹中新建<code>CNAME</code>文件, 写入<code>tokinonagare.com</code>;</li>
+<li>因为是顶级域名, 需在DNS使用<code>ALIAS</code>记录, 然而<a href="https://www.cloudflare.com">Cloudflare</a>没有这个记录选项, 所以需直接用<code>A</code>记录到两个ip:<code>192.30.252.153</code>&amp;<code>192.30.252.154</code><strong>注: ip会更改</strong>;</li>
+<li>如果不使用<code>A</code>记录, 使用<code>CNAME</code>记录到<code>tokinonagare.com</code>访问正常, 按照Github的说法会出现邮件的解析问题(未验证);</li>
+</ol>
+
+<ul>
+<li>参考: <a href="https://help.github.com/articles/my-custom-domain-isn-t-working/">https://help.github.com/articles/my-custom-domain-isn-t-working/</a></li>
+<li>参考: <a href="http://justcoding.iteye.com/blog/1959737">http://justcoding.iteye.com/blog/1959737</a></li>
+</ul>
+
+
+                
+                </div>                
+                <a class="more pull-right button button-rounded button-flat-blue" href="/2015/07/21/Blog-no-hajimari">
+                    Full Post
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>                
+            </div>
+        
+        </div>
+
+        <!-- Pagination -->
+        
+        <!-- latex render begin -->
+<script type="text/x-mathjax-config">  
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [ ['$','$'] ],
+            displayMath: [ ['$$$','$$$'] ]
+        }
+    });
+    MathJax.Hub.Queue(function () {
+        $('body').scrollspy('refresh'); 
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<!-- latex render end -->
+
+
+
+    </div>
+    <div class="col-md-3 hidden-xs">
+      <div class="item-list paper-curl tags">
+        <h4 class="page-header"><a class="feature-link" href="/">Recent</a></h4>
+        <ol class="list-unstyled">
+          
+          <li> <a data-toggle="tooltip" data-placement="left" title="2015-07-21" href="/2015/07/21/Blog-no-hajimari">Blogの始まり</a> </li>
+          
+        </ol>
+      </div>
+        <div class="item-list paper-curl">
+            <h4 class="page-header"><a class="feature-link" href="/category.html">Categories</a></h4>
+            <ol class="list-unstyled">
+            
+                <li>
+                    <a href="/category.html#category-web">
+                        Web(1)
+                    </a>
+                </li>
+            
+            </ol>
+        </div>
+        <div class="item-list paper-curl tags">
+            <h4 class="page-header"><a class="feature-link" href="/">Tags</a></h4>
+        
+            
+            
+            <a class="label label-default
+"
+                href="/tag.html#tag-github">
+                github(1)
+            </a>
+        
+            
+            
+            <a class="label label-default
+"
+                href="/tag.html#tag-markdown">
+                markdown(1)
+            </a>
+        
+            
+            
+            <a class="label label-default
+"
+                href="/tag.html#tag-jekyll">
+                jekyll(1)
+            </a>
+        
+        </div>
+    </div>
+</div>
+
+<script src="/assets/lib/moment.min.js"></script>
+
+<script>
+    function update_moment(element){
+        $(element).find('[data-date]').each(function(i,e){
+            var str = moment($(e).data('date'),'YYYY-MM-DD').fromNow();
+            $(e).text(str);
+        });
+    }
+    $(function(){
+        update_moment($('body')[0]);
+    });
+</script>
+
+
+<script>
+$(function(){
+    var ias = $.ias({
+      container:  '#posts',
+      item:       '.post',
+      pagination: '.pager',
+      next:       '.pager .previous a'
+    });
+    ias.on('loaded', function(data, items) {
+        for(var i in items){ update_moment(items[i]); }
+    });
+    ias.extension(new IASSpinnerExtension({ src: '/assets/img/loading.gif' }));
+    ias.extension(new IASNoneLeftExtension({
+        text: 'No more posts.',
+        html: '<div class="ias-noneleft" style="text-align: center;color:#fff">{text}</div>'
+    }));
+});
+</script>
+
+  </div>
+</div>
+<div id="footer">
+  <div class="container-fluid">
+    <div class="credit nowrap">
+      <p class="text-muted" title="Copyright © 2015 Tokinonagare. Hosted by GitHub and powered by Jekyll.">
+        Copyright © 2015
+        <a href="//tokinonagare.github.io">Tokinonagare</a>. Hosted by
+        <a href="//github.com/" target="_blank">GitHub</a>
+        and powered by
+        <a href="//jekyllrb.com/">Jekyll</a>.
+
+      </p>
+            <span class="pull-right hidden-xs follow">
+                <a href="//github.com/tokinonagare/tokinonagare.github.io" target="_blank"> <i class="fa fa-github fa-lg"></i>
+                </a>
+            </span>
+    </div>
+  </div>
+</div>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/libs/html5shiv/3.6.2/html5shiv.js"></script>
+<script src="//v3.bootcss.com/docs-assets/js/respond.min.js"></script>
+<![endif]-->
+<script src="/assets/lib/jquery/jquery.scrollUp.min.js"></script>
+<script src="/assets/lib/jquery/jquery.lazyload.min.js" type="text/javascript"></script>
+<script src="/assets/lib/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+  var footHeight = $('#footer').outerHeight(true);
+  $(function () {
+    
+
+      //激活工具提示
+      $('[data-toggle="tooltip"]').tooltip();
+
+      //图片延迟加载
+      $("img.lazy").lazyload({effect: "fadeIn", skip_invisible: false});	//bootstrap thumbnail img will be invisible at the begining
+
+      //回到顶部按钮
+      $.scrollUp({
+        scrollName: 'scrollUp', topDistance: '300', topSpeed: 300, animation: 'fade', animationInSpeed: 500,
+        animationOutSpeed: 500, scrollText: '', activeOverlay: false,
+      });
+
+      //页面内链接滑动效果
+      $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+      $('a.animate').click(function () {
+        if ($(this).attr('offset')) {
+          offset += parseInt($(this).attr('offset'));
+        }
+        $body.animate({scrollTop: $($(this).attr('href')).offset().top}, 500);
+        return false;
+      });
+    });
+</script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-45491170-1', 'tokinonagare.github.io');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
