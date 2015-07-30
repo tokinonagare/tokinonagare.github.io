@@ -1,7 +1,7 @@
 name: Tokinonagare
 url:  http://tokinonagare.com
 
-permalink: /:year/:month/:day/:title
+permalink: /:year/:month/:day/:title.html
 
 paginate: 4
 paginate_path: "page:num"
@@ -13,10 +13,11 @@ markdown_ext:  md
 redcarpet:
     extensions: [no_intra_emphasis,tables,autolink,disable_indented_code_blocks,fenced_code_blocks]
 
-exclude: ['README.md', '*.sh', '.*']
+exclude: ['README.md', '*.sh', '.*', 'scripts/']
 
 gems:
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 cate_icons:
   reading: "fa-book"

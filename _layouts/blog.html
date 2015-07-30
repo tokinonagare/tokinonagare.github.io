@@ -3,11 +3,11 @@ layout: post
 ---
 
 <link rel="stylesheet" href="/assets/css/markdown.css">
-<link rel="stylesheet" href="/assets/css/monokai-syntax.css">
+<link rel="stylesheet" href="/assets/css/vs-syntax.css">
 <style>
 .sidebar{ width: 200px; margin-top:20px; border:1px solid #eaeaeb;}
 .sidebar ul{margin-top: 0;margin-bottom:0;}
-.sidebar.affix { position: fixed; top: 0px; } /* 控制affix位置*/
+.sidebar.affix { position: fixed; top: 0; } /* 控制affix位置*/
 .sidebar.affix-bottom { position: absolute;}
 
 .sidebar .nav .nav { display: none;}
@@ -50,6 +50,13 @@ layout: post
     <div class="col-lg-10 col-md-9 col-sm-8 left">
         <div class="md paper">
             {{ content }}
+
+            <p><strong>转载请注明出处</strong>：
+            <a href="{{page.url}}">
+              {{ page.title | capitalize }}
+              {% if page.subtitle %} - {{ page.subtitle }}{% endif %}
+            </a>
+          </p>
         </div>
 
         {% include post-paginator.html %}
@@ -72,7 +79,7 @@ layout: post
           $sideBar.affix({
               offset: {
                   top: function () {
-                      var offsetTop      = $sideBar.offset().top;
+                      var offsetTop    = $sideBar.offset().top;
                       return (this.top = offsetTop - 20); //负值越大越在下方freeze
                   },
                   bottom: function(){
@@ -81,7 +88,7 @@ layout: post
               }
           });
       },100);
-    
+
       //sidebar scroll spy
       $('body').scrollspy({
         target: '.sidebar',
@@ -112,7 +119,7 @@ layout: post
       var $this = $(this);
       $this.attr('id', i);
 
-      var level = parseInt(this.nodeName.substr(1));
+      var level  = parseInt(this.nodeName.substr(1));
       var offset = level - base_level;
 
       var li = new $('<li/>')

@@ -7,7 +7,7 @@
 		<atom:link href="http://tokinonagare.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Blogの始まり</title>
+				<title>Blog誕生</title>
 				<description>&lt;blockquote&gt;
 &lt;p&gt;首先感谢&lt;a href=&quot;http://harttle.github.io&quot;&gt;Harttle&lt;/a&gt;这套blog代码.
 如何使用Github和Jekyll搭建Blog的文章网上已经很多, 就不赘述了, 姑且记录一些自己遇到的问题.&lt;/p&gt;
@@ -94,9 +94,9 @@
 &lt;li&gt;参考: &lt;a href=&quot;http://blog.slaks.net/2013-06-10/jekyll-endraw-in-code/&quot;&gt;http://blog.slaks.net/2013-06-10/jekyll-endraw-in-code/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Tue, 21 Jul 2015 00:00:00 +0800</pubDate>
-				<link>http://tokinonagare.com/2015/07/21/Blog-no-hajimari</link>
-				<guid isPermaLink="true">http://tokinonagare.com/2015/07/21/Blog-no-hajimari</guid>
+				<pubDate>Thu, 30 Jul 2015 00:00:00 +0800</pubDate>
+				<link>http://tokinonagare.com/2015/07/30/Blog-tanjyou.html</link>
+				<guid isPermaLink="true">http://tokinonagare.com/2015/07/30/Blog-tanjyou.html</guid>
 			</item>
 		
 	</channel>
