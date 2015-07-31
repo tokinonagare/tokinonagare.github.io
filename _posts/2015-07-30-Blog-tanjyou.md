@@ -5,8 +5,8 @@ subtitle:   "GitHub 博客搭建问题记录"
 categories: Web
 tags: 		  Github Markdown Jekyll
 redirect_from:
-  - /web/Blog-tanjyou.html
-  - /2015/7/30/Blog-tanjyou/
+  - /web/Blog_tanjyou.html
+  - /2015/7/30/Blog_tanjyou/
 ---
 
 > 首先感谢[Harttle](http://harttle.github.io)这套blog代码.
@@ -106,3 +106,34 @@ excerpt: "摘要内容"
 * 参考: https://github.com/jekyll/jekyll/issues/3381
 * 参考: http://blog.slaks.net/2013-06-10/jekyll-endraw-in-code/
 
+# Gitignore
+
+> 由于每次本地jekyll serve 的时候都会在_site/文件夹中生成网站文件, 而push的时候需要git commit的话显得就很多余, 故想到能否屏蔽掉这一个文件夹
+
+根目录新建文件`.gitignore`写入
+
+```
+_site/
+.sass-cache/
+.jekyll-metadata
+```
+传送门: [Github/Jekyll.gitignore](https://github.com/github/gitignore/blob/master/Jekyll.gitignore){:target="_blank"}
+
+# 新窗口中打开URL链接
+
+> 使用`{% raw %}[Tokinonagare](http://tokinonagare.com){% endraw %}`打开的URL只能在当前窗口打开, 对于一些参考链接的话非常不方便
+
+添加jQuery`_layouts/default.html`
+
+```cpp
+<script>
+//Url在新窗口中打开
+  $(document.links).filter(function() {
+    return this.hostname != window.location.hostname;
+  }).attr('target', '_blank');
+</script>
+```
+
+
+* 参考: http://www.chengxusheji.com/archives/121.html
+* 参考: https://github.com/github/gitignore

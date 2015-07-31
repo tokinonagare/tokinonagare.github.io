@@ -178,5 +178,12 @@
   ga('send', 'pageview');
 </script>
 
+<script>
+//Url在新窗口中打开
+  $(document.links).filter(function() {
+    return this.hostname != window.location.hostname;
+  }).attr('target', '_blank');
+</script>
+
 </body>
 </html>

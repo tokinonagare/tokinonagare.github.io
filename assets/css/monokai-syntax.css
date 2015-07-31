@@ -1,7 +1,9 @@
 .highlight pre { color: #fff; padding: 7px; background-color:#333}
 .highlight .hll { background-color: #49483e }
 .highlight .c { color: #75715e } /* Comment */
-.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+/* 由于颜色显示异常注释掉 */
+/*.highlight .err { color: #960050; background-color: #1e0010 }*/ /* Error */
+.highlight .err { color: #F83333 } /* Error - 取到了sub3 monokai的error 颜色*/
 .highlight .k { color: #66d9ef } /* Keyword */
 .highlight .l { color: #ae81ff } /* Literal */
 .highlight .n { color: #f8f8f2 } /* Name */
