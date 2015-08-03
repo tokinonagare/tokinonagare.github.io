@@ -1,11 +1,11 @@
 ---
 layout: blog
-categories: Mac
-title:  彻底删除 LogeMein For Mac
+categories: System
+title:  彻底删除 LogeMein for Mac
 tags: Mac Software
 redirect_from:
-  - /web/Delete_LogeMein_For_Mac.html
-  - /2015/7/30/Delete_LogeMein_For_Mac/
+  - /web/Delete_LogeMein_for_Mac.html
+  - /2015/07/30/Delete_LogeMein_for_Mac/
 ---
 
 前段时间因为需要和老板远程视频, 试验了很多个视频工具, LogMein也是其中的一个, 后面没有使用在Application中删除了, 然而开机后却发现这东西依然会自动启动在menu bar(工具栏)中.

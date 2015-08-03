@@ -5,8 +5,8 @@ subtitle:   "GitHub 博客搭建问题记录"
 categories: Web
 tags: 		  Github Markdown Jekyll
 redirect_from:
-  - /web/Blog_tanjyou.html
-  - /2015/7/30/Blog_tanjyou/
+  - /web/Blog_TanJyou.html
+  - /2015/07/30/Blog_TanJyou/
 ---
 
 > 首先感谢[Harttle](http://harttle.github.io)这套blog代码.
@@ -71,7 +71,7 @@ redirect_from:
 excerpt: "摘要内容"
 ---
 ```
-需要手动添加内容, 对于懒人来说太困难了_(:з」∠)_
+需要手动添加内容, 对于懒人来说太困难了{% raw %}_(:з」∠)_{% endraw %}
 
 * 参考: http://mikeygee.com/blog/truncate.html
 * 参考: https://blog.omgmog.net/post/adding-support-for-more-tag-to-jekyll-without-plugins/
