@@ -1,7 +1,8 @@
 Tokinonagare.github.io
 =================
+This is a personal Blog for **[時の流れ](tokinonagare.com)**.
 
-Thanks for [Harttle])(http://Harttle.github.io)!
+Thanks for **[Harttle](http://Harttle.github.io)**!
 
 Source files for **[Tokinonagare's homepage](http://tokinonagare.github.io)**.
 
@@ -10,7 +11,6 @@ Features:
 * Github Flavored Markdown
 * Code highlighting
 * laTex lines/blocks
-* Img gallary
 * Automate table of contents
 
 

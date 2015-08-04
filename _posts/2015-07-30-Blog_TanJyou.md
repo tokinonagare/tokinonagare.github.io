@@ -71,7 +71,7 @@ redirect_from:
 excerpt: "摘要内容"
 ---
 ```
-需要手动添加内容, 对于懒人来说太困难了{% raw %}_(:з」∠)_{% endraw %}
+需要手动添加内容, 对于懒人来说太困难了_(:з」∠)...
 
 * 参考: http://mikeygee.com/blog/truncate.html
 * 参考: https://blog.omgmog.net/post/adding-support-for-more-tag-to-jekyll-without-plugins/
