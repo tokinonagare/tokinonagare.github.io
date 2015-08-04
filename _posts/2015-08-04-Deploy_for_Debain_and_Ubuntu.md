@@ -8,6 +8,8 @@ redirect_from:
   - /2015/08/04/Deploy_for_Debain_and_Ubuntu/
 ---
 
+拿到一台新VPS需要干的几件事情...
+
 # 设置用户
 增加用户: 
 

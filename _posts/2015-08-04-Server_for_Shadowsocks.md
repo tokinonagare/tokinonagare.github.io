@@ -8,6 +8,8 @@ redirect_from:
   - /2015/08/04/Server_for_Shadowsocks/
 ---
 
+> 不知从何时开始, 弄到一台新VPS的第一件事情...毫无疑问的就是部署shadowsocks...
+
 # Server 部署:
 
 ```bash

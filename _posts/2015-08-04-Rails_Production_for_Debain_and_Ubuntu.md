@@ -8,6 +8,7 @@ redirect_from:
   - /2015/08/04/Rails_Production_for_Debain_and_Ubuntu/
 ---
 
+把官方和前辈的配置步骤简化总结了一下
 
 **使用非root账号登陆, 需具备sudo权限.**
 
