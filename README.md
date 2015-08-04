@@ -1,6 +1,6 @@
 Tokinonagare.github.io
 =================
-This is a personal Blog for **[時の流れ](tokinonagare.com)**.
+This is a personal Blog for **[時の流れ](http://tokinonagare.com)**.
 
 Thanks for **[Harttle](http://Harttle.github.io)**!
 
