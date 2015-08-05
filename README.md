@@ -14,4 +14,4 @@ Features:
 * Automate table of contents
 
 
-Copyright © 2015 Tokinonagare. Hosted by [GitHub](http://github.com/harttle/), powered by **[Jekyll](http://github.com/mojombo/jekyll)**.
+Copyright © 2015 Tokinonagare. Hosted by [GitHub](http://github.com/tokinonagare/), powered by **[Jekyll](http://github.com/mojombo/jekyll)**.
