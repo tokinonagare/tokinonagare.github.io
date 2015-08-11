@@ -47,6 +47,7 @@ _注意: 改变网络环境情况下需要 `Tool > reload`_
 * Start New line Before Curre : 在该行上一行新建一行,光标移动到新建行 > Command + Shift + Space
 
 未修改
+
 * 查看详情 Control + J
 * 快速修复 Alt + Enter
 
