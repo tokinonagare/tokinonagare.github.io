@@ -1,7 +1,7 @@
 ---
 layout: 	  blog
 title:		  Debain & Ubuntu 部署生产 Rails
-categories: System
+categories: Linux
 tags: 		  Linux Debain Ubuntu Rails Ruby
 redirect_from:
   - /web/Rails_Production_for_Debain_and_Ubuntu.html

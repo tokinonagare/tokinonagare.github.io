@@ -185,7 +185,7 @@
 -->
 
 <script>
-//Url在新窗口中打开
+//Url在新窗口中打开, 本地正常, 服务器无效
   $(document.links).filter(function() {
     return this.hostname != window.location.hostname;
   }).attr('target', '_blank');

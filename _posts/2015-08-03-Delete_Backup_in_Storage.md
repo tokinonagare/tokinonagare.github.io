@@ -1,8 +1,8 @@
 ---
 layout: blog
-categories: System
+categories: Mac
 title:  删除Mac在硬盘中的备份
-tags: Mac Storage
+tags: Storage
 redirect_from:
   - /web/Delete_Backup_in_Storage.html
   - /2015/08/03/Delete_Backup_in_Storage/

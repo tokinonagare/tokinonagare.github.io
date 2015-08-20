@@ -1,8 +1,8 @@
 ---
 layout: blog
-categories: System
+categories: Mac
 title:  彻底删除 LogeMein for Mac
-tags: Mac Software
+tags: Software
 redirect_from:
   - /web/Delete_LogeMein_for_Mac.html
   - /2015/07/30/Delete_LogeMein_for_Mac/

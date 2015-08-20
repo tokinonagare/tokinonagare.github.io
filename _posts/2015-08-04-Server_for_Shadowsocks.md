@@ -1,7 +1,7 @@
 ---
 layout: 	  blog
 title:		  Debain & Ubuntu 部署 Shadowsocks
-categories: System
+categories: Linux
 tags: 		  Linux Debain Ubuntu Shadowsocks 
 redirect_from:
   - /web/Server_for_Shadowsocks.html
@@ -57,4 +57,19 @@ password = 123
 
 ```bash
 supervisorctl reload
+```
+# 防火墙配置
+
+```bash
+ipdatables -A INPUT -p tcp -m state --state NEW -m tcp --dport 8449 -j ACCEPT
+```
+将8449替换成自己的端口即可
+
+* 注: `-A INPUT -j DROP` 规则在的话会无法连上.
+
+
+记得写入rules
+
+```bash
+iptables-save > /etc/iptables.rules
 ```

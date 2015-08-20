@@ -24,6 +24,8 @@ cate_icons:
   linux: "fa-linux"
   web: "fa-html5"
   misc: "fa-file-text"
+  Mac: "fa-mac"
+  Andriod: "fa-andriod"
 
 # 以'post.excerpt'进行文章摘要
 # excerpt_separator: "<!-- more -->"

@@ -2,8 +2,8 @@
 layout: 	  blog
 title:		  Andriod Studio 学习笔记 - 初探
 subtitle:   安装 基本设置
-categories: App
-tags: 		  Andriod Java Mac Andriod_Studio 
+categories: Andriod
+tags: 		  Java Mac Andriod_Studio 
 redirect_from:
   - /web/Study_Note_for_Android_Studio.html
   - /2015/08/11/Study_Note_for_Android_Studio/

@@ -1,7 +1,7 @@
 ---
 layout: 	  blog
 title:		  Debain & Ubuntu 基本部署
-categories: System
+categories: Linux
 tags: 		  Linux Debain Ubuntu ssh
 redirect_from:
   - /web/Deploy_for_Debain_and_Ubuntu.html
