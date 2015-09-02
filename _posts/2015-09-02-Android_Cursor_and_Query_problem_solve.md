@@ -15,7 +15,7 @@ redirect_from:
 
 ## Cursor
 
-```
+```bash
 //Move to the first row in your results
 cursor.moveToFirst();
 
@@ -31,7 +31,7 @@ while(!cursor.isAfterLast()) {
 
 研究了一下Cursor的方法后使用了如下代码替换, 解决了问题
 
-```
+```bash
 while (cursor.moveToNext()){
     if(cursor.getString(cursor.getColumnIndex("productname"))!= null) {
         sqLiteDatabaseString += cursor.getString(cursor.getColumnIndex("productname"));
@@ -44,7 +44,7 @@ cursor.close();
 
 ## Query
 
-```
+```bash
   @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + TABLE_PRODUCTS + " ( " +
