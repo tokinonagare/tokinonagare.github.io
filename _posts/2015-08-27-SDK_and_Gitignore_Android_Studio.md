@@ -49,6 +49,17 @@ Mac 下面的话这几个`ignore`项目的话就足够了
 
 意思是在.idea文件夹下的任意目录下带`.xml`后缀的文件.
 
+```bash
+git rm -r . --cached
+```
+
+允许递归`-r`的方法清除该文件夹下的所有缓存索引.
+
+```bash
+git add .
+git commit -m "Change .gitignore file"
+```
+
 * 看到有文章将`gradle.xml`文件例如非ignore的文件
 
 ```
