@@ -109,13 +109,16 @@ spec:
 # 彻底删除
 helm delete --purge gocd
 
+# 添加远程 repo
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+
 # 使用 fork 的 url, 注意是 raw 文件
 # 同时 ./gocd 是本地 pull 下来的文件(包含自行修改的 ingress)
-helm install -f https://raw.githubusercontent.com/tokinonagare/charts/master/stable/gocd/values.yaml\
- ./gocd --name gocd --namespace gocd
+helm install -f https://raw.githubusercontent.com/tokinonagare/charts/staging/stable/gocd/values.yaml\
+ stable/gocd --name gocd --namespace gocd
  
 # 也可以
-helm install -f values.yaml stale/gocd --name gocd --namespace gocd
+helm install -f values.yaml stable/gocd --name gocd --namespace gocd
 ```
 
 ## 端口转发
@@ -136,7 +139,7 @@ ssh root@51.23.233.23 -L 8153:localhost:8153
 由于不是 `AWS` `GCE` 在没有上 `Ceph` 之前, 使用在 `host` 上挂载一个硬盘空间, 重装过程如下:
 ```bash
 # 删除 pv 和 pvc
-kubectl delete pv gocd-pv && kubectl delete pvc gocd-pv -n gocd
+kubectl delete pv gocd-gocd-pv && kubectl delete pvc gocd-pvc -n gocd
 
 # 删除 host 上的文件
 rm -rf /data/gocd
